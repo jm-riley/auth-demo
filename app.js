@@ -24,6 +24,21 @@ app.use(
   })
 );
 
+app.use((req, res, next) => {
+  res.locals.user = req.session.user;
+  next();
+});
+
+/*
+sessionCookie: id34
+const sessionId = cookies.sessionCookie
+req.session = sessionStore[sessionId]
+*/
+// session store
+/*
+{ubduwue74374: {id: 7, username: 'billy'}, idhhfidifj2: {id: 2, username: 'alice'}}
+*/
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
