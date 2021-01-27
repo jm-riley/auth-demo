@@ -4,6 +4,7 @@ const { User } = require('../db/models');
 const router = express.Router();
 
 const csrfProtection = csrf({ cookie: true });
+const asyncHandler = (handler) => (req, res, next) => handler(req, res, next).catch(next);
 
 // 1. GET route that renders a register form
 
