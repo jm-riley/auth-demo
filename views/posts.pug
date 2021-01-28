@@ -5,4 +5,4 @@ block content
       p #{post.content} --- #{post.User.username}
       if user && user.id === post.userId
         button(id=post.id class='delete-button') delete 
-    
+  script(src="/javascripts/index.js")

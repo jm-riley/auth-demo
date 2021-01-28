@@ -7,6 +7,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const postsRouter = require('./routes/posts');
 const postsAPIRouter = require("./routes/api/posts-api");
+const path = require("path");
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(logger('dev'));
 
+app.use(express.static(path.join(__dirname, "public")));
 // set up session middleware
 app.use(
   session({
