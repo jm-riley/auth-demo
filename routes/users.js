@@ -3,9 +3,7 @@ const csrf = require('csurf');
 const { User } = require('../db/models');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
-
-const csrfProtection = csrf({ cookie: true });
-const asyncHandler = (handler) => (req, res, next) => handler(req, res, next).catch(next);
+const { csrfProtection, asyncHandler } = require('./util');
 
 // 1. GET route that renders a register form
 router.get(

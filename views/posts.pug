@@ -1,0 +1,8 @@
+extends layout
+block content
+  each post in posts
+    div
+      p #{post.content} --- #{post.User.username}
+      if user && user.id === post.userId
+        button(id=post.id class='delete-button') delete 
+    
