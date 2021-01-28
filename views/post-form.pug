@@ -1,0 +1,11 @@
+extends layout
+block content
+	h1 Create Post
+	if user
+		form(action="/posts", method="post")
+			input(type="hidden", name="_csrf" value=csrfToken)
+			label What is on your mind?
+			div 
+				textarea(name="content", cols="30", rows="2") 
+			div
+				button(type="submit") Create Post
